@@ -1,0 +1,196 @@
+.footer {
+    background-color: #000;
+    color: #fff;
+    padding: 2rem 1rem;
+    font-family: Arial, sans-serif;
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .footer-section {
+    margin-bottom: 1.5rem;
+  }
+  
+  .footer-section h3 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+  
+  .footer-section p {
+    font-size: 0.875rem;
+    margin: 0.5rem 0;
+    line-height: 1.5;
+  }
+  
+  .footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-section ul li {
+    font-size: 0.875rem;
+    margin: 0.75rem 0;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  
+  .footer-section ul li:hover {
+    color: #ccc;
+  }
+  
+  .subscribe-input {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .subscribe-input input {
+    flex: 1;
+    padding: 0.75rem;
+    border: 1px solid #555;
+    background-color: transparent;
+    color: #fff;
+    font-size: 0.875rem;
+    min-width: 0;
+  }
+  
+  .subscribe-input button {
+    padding: 0 1.5rem;
+    border: 1px solid #555;
+    background-color: transparent;
+    color: #fff;
+    cursor: pointer;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    white-space: nowrap;
+    transition: background-color 0.2s;
+  }
+  
+  .subscribe-input button:hover {
+    background-color: #333;
+  }
+  
+  .currency {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+  }
+  
+  .currency img {
+    width: 1rem;
+    height: 0.75rem;
+    object-fit: contain;
+  }
+  
+  .currency-title,
+  .payment-title {
+    margin-top: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .currency-note {
+    font-size: 0.75rem;
+    color: #aaa;
+    line-height: 1.4;
+  }
+  
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  .social-icons .icon {
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+  
+  .social-icons .icon:hover {
+    opacity: 0.8;
+  }
+  
+  .payment-methods {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .payment-icon {
+    width: 2.5rem;
+    height: auto;
+    object-fit: contain;
+  }
+  
+  .footer-bottom {
+    text-align: center;
+    font-size: 0.75rem;
+    color: #aaa;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #333;
+  }
+  
+  .payment-methods {
+    margin-top: 1rem;
+  }
+  
+  .payment-methods-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px; /* For scrollbar space if needed */
+  }
+  
+  .payment-icon {
+    height: 16px;
+    width: auto;
+    max-width: 40px;
+    object-fit: contain;
+  }
+  
+  /* For very small screens */
+  @media (max-width: 350px) {
+    .payment-icon {
+      height: 14px;
+      max-width: 35px;
+    }
+  }
+  /* Responsive Design */
+  @media (min-width: 480px) {
+    .footer-content {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .footer-content {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .footer-section {
+      margin-bottom: 0;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .footer-content {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .footer-section h3 {
+      font-size: 1.125rem;
+    }
+  }

@@ -3,6 +3,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar";
 import Sidebar from "./Components/Sidebar";
 import ProductCard from "./Components/ProductCard";
+import Footer from "./Components/Footer";
 
 import product1 from "./assets/product1.jpg";
 import product2 from "./assets/product2.jpg";
@@ -127,6 +128,8 @@ const App = () => {
           </div>
         </div>
       </div>
+      <Footer />
+      <div className="footer-spacer"></div>
     </div>
   );
 };
