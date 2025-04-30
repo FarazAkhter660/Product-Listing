@@ -1,15 +1,17 @@
 .sidebar {
-  width: 250px;
-  padding: 20px;
-  border-right: 1px solid #ddd;
+  width: 100%;
+  padding: 15px;
+  border-right: none;
+  border-bottom: 1px solid #ddd;
   font-size: 14px;
+  order: -1; /* Move to top on mobile */
 }
 
 .sidebar-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end; /* Align hide button to right */
   font-weight: bold;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
 .hide-filter-btn {
@@ -19,24 +21,71 @@
   cursor: pointer;
   text-transform: uppercase;
   font-size: 12px;
+  padding: 5px;
+}
+
+.hide-filter-btn:hover {
+  color: #333;
 }
 
 .customizable {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.customizable input {
+  margin: 0;
 }
 
 .filter-group {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .filter-label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  font-size: 13px;
 }
 
 .filter-select {
   width: 100%;
-  padding: 6px;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 13px;
+  background-color: white;
+}
+
+/* Tablet and larger */
+@media (min-width: 768px) {
+  .sidebar {
+    width: 250px;
+    padding: 20px;
+    border-right: 1px solid #ddd;
+    border-bottom: none;
+    order: 0; /* Reset order */
+  }
+
+  .sidebar-header {
+    margin-bottom: 20px;
+  }
+
+  .filter-label {
+    font-size: 14px;
+  }
+
+  .filter-select {
+    padding: 6px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .sidebar {
+    padding: 25px 20px;
+  }
 }
