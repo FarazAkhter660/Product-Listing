@@ -1,6 +1,6 @@
-import React from 'react';
-import './ProductCard.css';
-import { FaHeart } from 'react-icons/fa';
+import React from "react";
+import "./ProductCard.css";
+import { FaHeart } from "react-icons/fa";
 
 const ProductCard = ({ image, title, tag }) => {
   return (
