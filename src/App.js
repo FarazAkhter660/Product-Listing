@@ -21,36 +21,40 @@ import product13 from "./assets/product13.jpg";
 
 const App = () => {
   const [showSidebar, setShowSidebar] = useState(true);
-
   const toggleSidebar = () => setShowSidebar(!showSidebar);
-  const products = [
+
+  const [selectedSort, setSelectedSort] = useState("RECOMMENDED");
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const [products] = useState([
     {
       id: 1,
       image: product1,
       title: "PPXDC Milkhyway Dress",
       tag: "NEW PRODUCT",
+      price: 149,
     },
     {
       id: 2,
       image: product2,
       title: "PPXDC Milkhyway Plush Toy",
       tag: "OUT OF STOCK",
+      price: 89,
     },
-    { id: 3, image: product3, title: "Leather Keychain" },
-    { id: 4, image: product4, title: "Grey Cap" },
-    { id: 5, image: product5, title: "Classic Backpack" },
-    { id: 6, image: product6, title: "Dino Plush Toy" },
-    { id: 7, image: product7, title: "Leather Pouch" },
-    { id: 8, image: product8, title: "Roll-up Bag" },
-    { id: 9, image: product9, title: "Grey Backpack" },
-    { id: 10, image: product10, title: "Mini Duffel" },
-    { id: 11, image: product11, title: "Laptop Bag" },
-    { id: 12, image: product12, title: "Toy Bunny" },
-    { id: 13, image: product13, title: "Travel Kit" },
-  ];
+    { id: 3, image: product3, title: "Leather Keychain", price: 29 },
+    { id: 4, image: product4, title: "Grey Cap", price: 39 },
+    { id: 5, image: product5, title: "Classic Backpack", price: 199 },
+    { id: 6, image: product6, title: "Dino Plush Toy", price: 59 },
+    { id: 7, image: product7, title: "Leather Pouch", price: 49 },
+    { id: 8, image: product8, title: "Roll-up Bag", price: 129 },
+    { id: 9, image: product9, title: "Grey Backpack", price: 179 },
+    { id: 10, image: product10, title: "Mini Duffel", price: 159 },
+    { id: 11, image: product11, title: "Laptop Bag", price: 139 },
+    { id: 12, image: product12, title: "Toy Bunny", price: 75 },
+    { id: 13, image: product13, title: "Travel Kit", price: 89 },
+  ]);
 
-  const [selectedSort, setSelectedSort] = useState("RECOMMENDED");
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [sortedProducts, setSortedProducts] = useState(products);
 
   const options = [
     "RECOMMENDED",
@@ -59,6 +63,28 @@ const App = () => {
     "PRICE : HIGH TO LOW",
     "PRICE : LOW TO HIGH",
   ];
+
+  const handleSort = (option) => {
+    let sorted = [...products];
+    switch (option) {
+      case "PRICE : HIGH TO LOW":
+        sorted.sort((a, b) => b.price - a.price);
+        break;
+      case "PRICE : LOW TO HIGH":
+        sorted.sort((a, b) => a.price - b.price);
+        break;
+      case "NEWEST FIRST":
+        sorted.sort((a, b) => b.id - a.id);
+        break;
+      case "RECOMMENDED":
+      default:
+        sorted = [...products];
+        break;
+    }
+    setSelectedSort(option);
+    setSortedProducts(sorted);
+    setDropdownOpen(false);
+  };
 
   return (
     <div>
@@ -105,10 +131,7 @@ const App = () => {
                       className={`dropdown-option ${
                         option === selectedSort ? "active" : ""
                       }`}
-                      onClick={() => {
-                        setSelectedSort(option);
-                        setDropdownOpen(false);
-                      }}
+                      onClick={() => handleSort(option)}
                     >
                       {option === selectedSort && (
                         <span className="checkmark">✔</span>
@@ -122,7 +145,7 @@ const App = () => {
           </div>
 
           <div className="product-grid">
-            {products.map((item) => (
+            {sortedProducts.map((item) => (
               <ProductCard key={item.id} {...item} />
             ))}
           </div>
